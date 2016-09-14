@@ -64,7 +64,7 @@ function scm_header_scripts() {
 		// wp_register_script('modernizr', get_template_directory_uri() . '/bower_components/modernizr/src/Modernizr.js', array(), '3.0.0');
 
 		// Theme Scripts
-		wp_register_script('scm_scripts', get_template_directory_uri() . '/js/min/theme-min.js', array('modernizr','jquery'), $SCM_VERSION);
+		wp_register_script('scm_scripts', get_template_directory_uri() . '/js/min/theme-min.js', array('jquery'), $SCM_VERSION);
 
 		// Enqueue Scripts
 		wp_enqueue_script('scm_scripts');
