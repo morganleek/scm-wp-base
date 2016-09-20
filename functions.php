@@ -275,5 +275,12 @@ remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altoget
 add_filter('site_transient_update_themes', 'remove_update_themes', 100, 1); // No site theme update notifications 
 
 function remove_update_themes($value) {
-    return null;
+	return null;
+}
+
+function _d($obj, $return = false) {
+	if($return) {
+		return '<pre>' . print_r($obj, true) . '</pre>';
+	}
+	print '<pre>' . print_r($obj, true) . '</pre>';	
 }
