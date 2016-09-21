@@ -278,6 +278,7 @@ function remove_update_themes($value) {
 	return null;
 }
 
+// Dump Object Short Function
 function _d($obj, $return = false) {
 	if($return) {
 		return '<pre>' . print_r($obj, true) . '</pre>';
