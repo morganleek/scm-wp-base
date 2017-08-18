@@ -1,5 +1,5 @@
 $.when( $.ready ).then(function() {
-	// Dom Ready...
+  // Dom Ready...
 });
 
 $(window).on("load", function () {
