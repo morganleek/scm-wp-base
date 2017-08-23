@@ -297,7 +297,7 @@ function scm_opt_ratio($target, $dimensions) {
 			$imageHeight = $width / $ratio;
 		}
 		else {
-			$imageWidth = $height / $ratio;
+			$imageWidth = $height * $ratio;
 			$imageHeight = $height;
 		}
 	}
