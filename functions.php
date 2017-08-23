@@ -278,6 +278,33 @@ function remove_update_themes($value) {
 	return null;
 }
 
+// Returns maximum size for image whilst maintaining an aspect ratio
+function scm_opt_ratio($target, $dimensions) {
+	$width = $dimensions[0];
+	$height = $dimensions[1];
+
+	$optWidth = $target[0];
+	$optHeight = $target[1];
+
+	$ratio = $optWidth / $optHeight;
+
+	$imageWidth = $optWidth;
+	$imageHeight = $optHeight;
+
+	if($width < $optWidth || $height < $optHeight) {
+		if($width / $ratio <= $height) {
+			$imageWidth = $width;
+			$imageHeight = $height / $ratio;
+		}
+		else {
+			$imageWidth = $width / $ratio;
+			$imageHeight = $height;
+		}
+	}
+	
+	return array(floor($imageWidth), floor($imageHeight));
+}
+
 // Dump Object Short Function
 function _d($obj, $return = false) {
 	if($return) {
