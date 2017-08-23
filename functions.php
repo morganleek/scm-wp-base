@@ -294,10 +294,10 @@ function scm_opt_ratio($target, $dimensions) {
 	if($width < $optWidth || $height < $optHeight) {
 		if($width / $ratio <= $height) {
 			$imageWidth = $width;
-			$imageHeight = $height / $ratio;
+			$imageHeight = $width / $ratio;
 		}
 		else {
-			$imageWidth = $width / $ratio;
+			$imageWidth = $height / $ratio;
 			$imageHeight = $height;
 		}
 	}
