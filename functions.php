@@ -305,6 +305,41 @@ function scm_opt_ratio($target, $dimensions) {
 	return array(floor($imageWidth), floor($imageHeight));
 }
 
+// Print background images for a number of different device sizes
+function scm_image_styles($image_id = 0, $width, $height, $large, $medium, $small, $class) {
+	// $meta = wp_get_attachment_metadata($image_id);   
+
+	if($image_id !== 0) {
+		$size_lg = scm_opt_ratio($large, array($width, $height));
+		$size_md = scm_opt_ratio($medium, array($width, $height));
+		$size_sm = scm_opt_ratio($small, array($width, $height));
+
+		$styles = array(
+			'lg' => fly_get_attachment_image_src($image_id, $size_lg, true),
+			'md' => fly_get_attachment_image_src($image_id, $size_md, true),
+			'sm' => fly_get_attachment_image_src($image_id, $size_sm, true),
+		);
+
+		$style .= '<style>
+			' . $class . ' {
+				background-image: url(' . $styles['sm']['src'] . ');
+			}
+			@media(min-width: 768px) {
+				' . $class . ' {
+					background-image: url(' . $styles['md']['src'] . ');
+				}
+			}
+			@media(min-width: 992px) {
+				' . $class . ' {
+					background-image: url(' . $styles['lg']['src'] . ');
+				}
+			}
+		</style>';
+
+		print $style;
+	}
+}
+
 // Dump Object Short Function
 function _d($obj, $return = false) {
 	if($return) {
