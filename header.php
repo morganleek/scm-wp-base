@@ -11,12 +11,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<meta name="description" content="<?php bloginfo('description'); ?>">
 
-		<meta property="og:url"           content="<?php the_permalink(); ?>" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="<?php bloginfo('name'); ?>" />
-    <meta property="og:description"   content="<?php wp_title(''); ?>" />
-    <meta property="og:image"         content="" />
-
     <?php wp_head(); ?>
   </head>
 
@@ -31,7 +25,7 @@
 			</div>
 
 			<nav class="nav">
-				<?php scm_nav(); ?>
+				<?php scm_nav(array('theme_location' => 'header-menu')); ?>
 			</nav>
 		</header>
 		<!-- /Header -->
